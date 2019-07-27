@@ -20,7 +20,7 @@ func main() {
 func increment(s string) {
 	for i := 0; i < 50; i++ {
                 atomic.AddInt64(&counter, 1)
-		fmt.Println(s, i, "Count:", counter)
+		fmt.Println(s, i, "Count:", atomic.LoadInt64(&counter))
 	}
 	wg.Done()
 }
